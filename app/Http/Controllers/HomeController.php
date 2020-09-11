@@ -10,6 +10,7 @@ class HomeController extends Controller
     public function getArticles()
     {
         $articles = Article::get();
+
         return view('articles.list', compact('articles'));
         
     }
@@ -22,6 +23,13 @@ class HomeController extends Controller
 
     public function postAdd(Request $request)
     {
+        $rules   = [
+            'titre'=>'required',
+            'contenu'=>'required'
+        ];
+
+        $request->validate($rules);
+        
         $titre   = $request->titre;
         $contenu = $request->contenu;
 
