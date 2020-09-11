@@ -29,7 +29,7 @@ class HomeController extends Controller
         ];
 
         $request->validate($rules);
-        
+
         $titre   = $request->titre;
         $contenu = $request->contenu;
 
@@ -42,7 +42,5 @@ class HomeController extends Controller
         $article->save();
 
         return back()->with('success', 'Article ajouté avec succès');
-
-        
     }
 }
